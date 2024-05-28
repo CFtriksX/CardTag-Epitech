@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "card-tag"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Paul GELAS", email = "paul.gelas@epitech.eu" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/CFtriksX/card-tag#readme"
+Issues = "https://github.com/CFtriksX/card-tag/issues"
+Source = "https://github.com/CFtriksX/card-tag"
+
+[tool.hatch.version]
+path = "src/card_tag/__about__.py"
+
+[tool.hatch.envs.default]
+extra-dependencies = [
+  "requests",
+  "opencv-python",
+  "nfcpy",
+]
+
+[tool.coverage.run]
+source_pkgs = ["card_tag", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/card_tag/__about__.py",
+]
+
+[tool.coverage.paths]
+card_tag = ["src/card_tag", "*/card-tag/src/card_tag"]
+tests = ["tests", "*/card-tag/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
