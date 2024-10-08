@@ -50,8 +50,12 @@ class QRCodeUserFinder(AbstractUserFinder):
                 return None
             elif attempt in ('', 'y', 'yes'):
                 break
+        x = 0;
         while True:
             ok, frame = self.__camera.read()
+            if x != 5:
+                x += 1;
+                continue
             if not ok:
                 print('\x1b[31mError performing video capture\x1b[0m')
                 return None
